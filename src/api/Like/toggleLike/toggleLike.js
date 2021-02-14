@@ -15,7 +15,7 @@ export default {
             },
           },
           {
-            post: {
+            Post: {
               id: postId,
             },
           },
@@ -23,6 +23,7 @@ export default {
       };
       try {
         const existingLike = await prisma.$exists.like(filterOptions);
+        console.log(await prisma.$exists.like(filterOptions));
         if (existingLike) {
           await prisma.deleteManyLikes(filterOptions);
         } else {
@@ -32,16 +33,17 @@ export default {
                 id: user.id,
               },
             },
-            post: {
+            Post: {
               connect: {
                 id: postId,
               },
             },
           });
         }
+        
         return true;
-      } catch(e) {
-        console.log(e);
+      } catch {
+        return false;
       }
     },
   },
