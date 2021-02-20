@@ -27,6 +27,6 @@ nodemailer를 이용할것이다  사용자들이 비밀값을 페이지에 붙�
 - [x] See the feed 사용자는 인스타그램에 접속하면 피드를 보도록할것이다
 피드는 어려우니까 마지막에
 - [x] See rooms 내 room보기
-- [ ] See room 이것은 모든 message를 다받는것
-- [ ] send private Massage
-- [ ] receive message (realtime)
+- [x] See room 이것은 모든 message를 다받는것
+- [x] send private Massage
+- [x] receive message (realtime)

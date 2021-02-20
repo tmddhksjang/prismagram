@@ -1,7 +1,5 @@
-
-import { prisma } from "../../../generated/prisma-client";
-import { ROOM_FRAGMENT } from "../../fragment";
-
+import { prisma } from "../../../../generated/prisma-client";
+import { ROOM_FRAGMENT } from "../../../fragment";
 
 export default {
   Mutation: {
@@ -15,8 +13,8 @@ export default {
           room = await prisma
             .createRoom({
               participants: {
-                connect: [{ id: toId }, { id: user.id }]
-              }
+                connect: [{ id: toId }, { id: user.id }],
+              },
             })
             .$fragment(ROOM_FRAGMENT);
         }
@@ -32,19 +30,19 @@ export default {
       return prisma.createMessage({
         text: message,
         from: {
-          connect: { id: user.id }
+          connect: { id: user.id },
         },
         to: {
           connect: {
-            id: roomId ? getTo.id : toId
-          }
+            id: roomId ? getTo.id : toId,
+          },
         },
         room: {
           connect: {
-            id: room.id
-          }
-        }
+            id: room.id,
+          },
+        },
       });
-    }
-  }
+    },
+  },
 };
